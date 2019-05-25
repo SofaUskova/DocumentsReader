@@ -16,12 +16,6 @@ class CreateActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_activity)
-
-        val fileName: String?
-        if (intent.extras != null) {
-            fileName = intent.extras.getString("POSITION")
-            readFileEditText(fileName, editText, this)
-        }
     }
 
     override fun onPause() {
