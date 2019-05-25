@@ -1,4 +1,4 @@
-package com.example.documentsreader.activities
+package com.example.documentsreader.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -10,7 +10,7 @@ import com.example.documentsreader.utils.readFileText
 import kotlinx.android.synthetic.main.read_activity.*
 import android.widget.TextView
 
-class ReadActivity : Fragment() {
+class ReadFragment : Fragment() {
 //    private lateinit var view?: View
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
