@@ -16,11 +16,12 @@ fun saveFile(fileName: String, editText: EditText, context: Context) {
 fun readFileText(fileName: String, textView: TextView, context: Context) {
     val br = BufferedReader(InputStreamReader(context.openFileInput(fileName)))
     br.use {
-        var str: String
+        var str: String?
         var i = 0
         do {
             str = br.readLine()
-            textView.append("${i++}. $str\n")
+            if (str != null)
+                textView.append("${i++}. $str\n")
         } while (str != null)
     }
 }
@@ -28,10 +29,11 @@ fun readFileText(fileName: String, textView: TextView, context: Context) {
 fun readFileEditText(fileName: String, editText: EditText, context: Context) {
     val br = BufferedReader(InputStreamReader(context.openFileInput(fileName)))
     br.use {
-        var str: String
+        var str: String?
         do {
             str = br.readLine()
-            editText.append("$str\n")
+            if (str != null)
+                editText.append("$str\n")
         } while (str != null)
     }
 }
