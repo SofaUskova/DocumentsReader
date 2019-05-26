@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.example.documentsreader.R
+import com.example.documentsreader.fragments.ContentFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import com.example.documentsreader.fragments.ReadFragment
 
-class MainActivity : AppCompatActivity() {
-
+class MainActivity : AppCompatActivity(), ContentFragment.OnFragmentInteractionListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,12 +22,11 @@ class MainActivity : AppCompatActivity() {
         startActivity(Intent(this, CreateActivity::class.java))
     }
 
-    fun onFragmentInteraction(fileName: String) {
+    override fun onFragmentInteraction(link: String) {
         val fragment = supportFragmentManager
             .findFragmentById(R.id.textFragment) as ReadFragment
-        if (fragment != null && fragment?.isInLayout) {
-            fragment?.setText(fileName)
+        if (fragment.isInLayout) {
+            fragment.setText(link)
         }
     }
-
 }

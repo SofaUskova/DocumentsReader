@@ -14,7 +14,7 @@ import com.example.documentsreader.utils.getFileList
 import java.util.*
 
 class ContentFragment : Fragment(), DataAdapter.OnSelectedItemListener {
-
+    private val PATH = "data//com.example.documentsreader//files"
     private var mOnFragmentInteractionListener: OnFragmentInteractionListener? = null
 
     override fun onSelectedItem(data: String) {
@@ -24,8 +24,6 @@ class ContentFragment : Fragment(), DataAdapter.OnSelectedItemListener {
         // активити что содержит фрагмент должен реализовывать интерфейс OnFragmentInteractionListener по аналогии
         // как этот фрагмент реализует интерфейс слушателя для адаптера
     }
-
-    private val PATH = "data//com.example.documentsreader//files"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val documents: List<String> = getFileList(PATH)

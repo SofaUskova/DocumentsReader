@@ -1,13 +1,11 @@
 package com.example.documentsreader.adapters
 
-import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.example.documentsreader.fragments.ContentFragment
 import com.example.documentsreader.R
 import java.text.SimpleDateFormat
 import java.util.*
@@ -30,9 +28,6 @@ class DataAdapter(
         holder.dateView.text = formating.format(dateTime).toString()
 
         holder.linearLayout.setOnClickListener { mOnSelectedItemListener.onSelectedItem(document) }
-        // val mediaStreamIntent = Intent(context, ReadFragment::class.java)
-        // mediaStreamIntent.putExtra("POSITION", documents[position])
-        // context.startActivity(mediaStreamIntent)
     }
 
     override fun getItemCount(): Int {
