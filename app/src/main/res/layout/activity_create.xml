@@ -4,11 +4,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <TextView
+    <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="start"
             android:textSize="15sp"
-            android:id="@+id/textView"/>
+            android:background="#FFFFFF"
+            android:id="@+id/editTextCreate"/>
 
 </android.support.constraint.ConstraintLayout>

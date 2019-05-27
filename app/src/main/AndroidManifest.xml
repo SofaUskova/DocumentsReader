@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.CreateActivity"></activity>
+        <activity android:name=".activities.ReadActivity"></activity>
     </application>
 
 </manifest>

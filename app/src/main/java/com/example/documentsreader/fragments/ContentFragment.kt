@@ -17,18 +17,10 @@ class ContentFragment : Fragment(), DataAdapter.OnSelectedItemListener {
     private val PATH = "data//com.example.documentsreader//files"
     private var mOnFragmentInteractionListener: OnFragmentInteractionListener? = null
 
-    override fun onSelectedItem(data: String) {
-        // передача данных активити
-        mOnFragmentInteractionListener?.onFragmentInteraction(data)
-        //todo здесь можешь передать данные в активити или обработать во фрагменте в зависимости от ситуации
-        // активити что содержит фрагмент должен реализовывать интерфейс OnFragmentInteractionListener по аналогии
-        // как этот фрагмент реализует интерфейс слушателя для адаптера
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val documents: List<String> = getFileList(PATH)
 
-        val view = inflater.inflate(R.layout.content_main, container, false)
+        val view = inflater.inflate(R.layout.activity_content, container, false)
         val recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
         val context = view.context
 
@@ -50,6 +42,14 @@ class ContentFragment : Fragment(), DataAdapter.OnSelectedItemListener {
     override fun onDetach() {
         mOnFragmentInteractionListener = null
         super.onDetach()
+    }
+
+    override fun onSelectedItem(data: String) {
+        // передача данных активити
+        mOnFragmentInteractionListener?.onFragmentInteraction(data)
+        //todo здесь можешь передать данные в активити или обработать во фрагменте в зависимости от ситуации
+        // активити что содержит фрагмент должен реализовывать интерфейс OnFragmentInteractionListener по аналогии
+        // как этот фрагмент реализует интерфейс слушателя для адаптера
     }
 
     interface OnFragmentInteractionListener {

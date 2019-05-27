@@ -27,7 +27,9 @@ class DataAdapter(
         holder.fileNameView.text = document
         holder.dateView.text = formating.format(dateTime).toString()
 
-        holder.linearLayout.setOnClickListener { mOnSelectedItemListener.onSelectedItem(document) }
+        holder.linearLayout.setOnClickListener {
+            mOnSelectedItemListener.onSelectedItem(document)
+        }
     }
 
     override fun getItemCount(): Int {

@@ -7,19 +7,19 @@
               tools:showIn="@layout/activity_main">
 
     <fragment
+            android:layout_weight="0.5"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             class="com.example.documentsreader.fragments.ContentFragment"
             android:id="@+id/mainfragment"
-            android:layout_weight="0.5"
-            tools:layout="@layout/content_main"/>
+            tools:layout="@layout/activity_content"/>
 
     <fragment
+            android:layout_weight="0.5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             class="com.example.documentsreader.fragments.ReadFragment"
             android:id="@+id/textFragment"
-            android:layout_weight="0.5"
-            tools:layout="@layout/read_activity"/>
+            tools:layout="@layout/activity_read"/>
 
 </LinearLayout>
