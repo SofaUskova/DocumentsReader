@@ -8,7 +8,7 @@
         tools:context=".activities.MainActivity"
         android:weightSum="1.0">
 
-    <include layout="@layout/activity_content"/>
+    <include layout="@layout/fragments"/>
 
     <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"

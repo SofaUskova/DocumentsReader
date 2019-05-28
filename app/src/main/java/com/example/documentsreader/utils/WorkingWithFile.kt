@@ -6,8 +6,23 @@ import android.widget.EditText
 import android.widget.TextView
 import java.io.*
 
+fun renameFile(fileName: String, newFilename: String, editText: EditText, context: Context) {
+    saveFile(newFilename, editText, context)
+    deleteFiles(fileName)
+}
+
+fun deleteFiles(fileName: String) {
+    try {
+        val path = "data//com.example.documentsreader//files//$fileName"
+        val getDirectory = Environment.getDataDirectory()
+        val file = File("$getDirectory//$path")
+        file.delete()
+    } catch (e: Exception) {
+    }
+}
+
 fun saveFile(fileName: String, editText: EditText, context: Context) {
-    val osw = OutputStreamWriter(context.openFileOutput(fileName, 0))
+    val osw = OutputStreamWriter(context.openFileOutput("$fileName.txt", 0))
     osw.use {
         osw.write(editText.text.toString())
     }
@@ -39,7 +54,26 @@ fun readFileEditText(fileName: String, editText: EditText, context: Context) {
 }
 
 fun isExists(fileName: String): Boolean {
-    return File(fileName).exists()
+    return File("//data//data//com.example.documentsreader//files//$fileName").exists()
+}
+
+fun increaseDefaultValueOfFile(fileName: String): String {
+    val newFileName: String
+    if (fileName.substring(fileName.length - 1) == ")") {
+        newFileName = checkFileName(fileName)
+    } else
+        newFileName = checkFileName("$fileName(1)")
+    return newFileName
+}
+
+fun checkFileName(fileName: String): String {
+    var number = fileName.substringAfter('(').substringBefore(')').toInt()
+    var newFileName = fileName
+    while (isExists("$newFileName.txt")) {
+        var fileNameWithoutNumber = fileName.dropLast(2)
+        newFileName = "$fileNameWithoutNumber${number++})"
+    }
+    return newFileName
 }
 
 fun getFileList(path: String): List<String> {
